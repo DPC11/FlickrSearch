@@ -15,18 +15,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cKC-8y-4hR">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="80"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrCell" id="1m6-XN-iAs" customClass="FlickrPhotoCell" customModule="FlickrSearch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="144" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zFU-OL-Ff6">
+                                            <rect key="frame" x="82" y="82" width="37" height="37"/>
+                                            <animations/>
+                                        </activityIndicatorView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="noA-f9-mpn">
                                             <rect key="frame" x="5" y="5" width="190" height="190"/>
                                             <animations/>
@@ -39,14 +43,38 @@
                                 <constraints>
                                     <constraint firstItem="noA-f9-mpn" firstAttribute="leading" secondItem="1m6-XN-iAs" secondAttribute="leading" constant="5" id="8DI-oj-aIX"/>
                                     <constraint firstAttribute="bottom" secondItem="noA-f9-mpn" secondAttribute="bottom" constant="5" id="AW3-gZ-PXO"/>
+                                    <constraint firstItem="zFU-OL-Ff6" firstAttribute="centerY" secondItem="1m6-XN-iAs" secondAttribute="centerY" id="BKk-1e-5yW"/>
                                     <constraint firstItem="noA-f9-mpn" firstAttribute="top" secondItem="1m6-XN-iAs" secondAttribute="top" constant="5" id="KrA-J8-1QR"/>
+                                    <constraint firstItem="zFU-OL-Ff6" firstAttribute="centerX" secondItem="1m6-XN-iAs" secondAttribute="centerX" id="Rbj-va-VSy"/>
                                     <constraint firstAttribute="trailing" secondItem="noA-f9-mpn" secondAttribute="trailing" constant="5" id="vzx-d5-Mk5"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="zFU-OL-Ff6" id="F8E-Vk-wOV"/>
                                     <outlet property="imageView" destination="noA-f9-mpn" id="LQp-ob-Cd8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="center" reuseIdentifier="FlickrPhotoHeaderView" id="Ois-gU-df3" customClass="FlickrPhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDF-Ce-C55">
+                                    <rect key="frame" x="257" y="19" width="87" height="43"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <animations/>
+                            <constraints>
+                                <constraint firstItem="PDF-Ce-C55" firstAttribute="centerY" secondItem="Ois-gU-df3" secondAttribute="centerY" id="qsl-Dl-Y7J"/>
+                                <constraint firstItem="PDF-Ce-C55" firstAttribute="centerX" secondItem="Ois-gU-df3" secondAttribute="centerX" id="zD1-gM-s4Y"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="PDF-Ce-C55" id="dBj-3t-iiJ"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="11h-Rw-qKv" id="xBt-Yt-s7m"/>
                             <outlet property="delegate" destination="11h-Rw-qKv" id="cs7-kF-8qu"/>
