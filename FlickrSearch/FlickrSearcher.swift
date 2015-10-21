@@ -11,7 +11,7 @@ import UIKit
 
 
 // Remeber to update the apiKey obtained from https://www.flickr.com/services/api/explore/?method=flickr.photos.search
-let apiKey = "21eebe6786ed7b1a921796bf0f7c5aa5"
+let apiKey = "f18ad945c7d48c5591262c83688acc7a"
 
 struct FlickrSearchResults {
     let searchTerm : String
